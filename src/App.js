@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./components/Button";
 
 function App() {
@@ -11,6 +11,11 @@ function App() {
   let decrementCount = () => {
     setCount(count - 1);
   };
+   useEffect(() => {
+   
+    localStorage.setItem("count", JSON.stringify(count));
+   
+  }, [count]);
 
   return (
     <div className="app">
